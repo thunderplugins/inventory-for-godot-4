@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://uh706kva4gth"]
+
+[node name="needed_amount" type="Label"]
+offset_right = 12.0
+offset_bottom = 14.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+text = "x2"

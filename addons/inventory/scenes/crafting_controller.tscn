@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://qy0hv6srwioa"]
+
+[ext_resource type="Script" path="res://addons/inventory/scripts/crafting_controller.gd" id="1_yt2f0"]
+
+[node name="crafting_controller" type="Area2D"]
+script = ExtResource("1_yt2f0")

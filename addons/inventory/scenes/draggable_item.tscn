@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://kohsm5lewlp5"]
+
+[ext_resource type="Script" path="res://addons/inventory/scripts/draggable_item.gd" id="1_814fh"]
+[ext_resource type="Texture2D" uid="uid://36rmd30e4rm1" path="res://addons/inventory/assets/items.png" id="2_42hfu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt20f"]
+atlas = ExtResource("2_42hfu")
+region = Rect2(0, 0, 16, 16)
+
+[node name="draggable_item" type="Node2D"]
+z_index = 2
+script = ExtResource("1_814fh")
+
+[node name="texture" type="TextureRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AtlasTexture_wt20f")
+stretch_mode = 5
+
+[node name="amount" type="Label" parent="."]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = 1.0
+offset_right = 14.0
+offset_bottom = 19.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 2
+vertical_alignment = 1

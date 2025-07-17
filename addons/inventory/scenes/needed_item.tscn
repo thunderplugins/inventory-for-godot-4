@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf1nsg8vf5fhu"]
+
+[ext_resource type="Texture2D" uid="uid://36rmd30e4rm1" path="res://addons/inventory/assets/items.png" id="1_tft4q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44it6"]
+atlas = ExtResource("1_tft4q")
+region = Rect2(0, 0, 16, 16)
+
+[node name="needed_item" type="AspectRatioContainer"]
+custom_minimum_size = Vector2(30, 30)
+
+[node name="item_texture" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_44it6")
+stretch_mode = 5

@@ -1,0 +1,150 @@
+[gd_scene load_steps=8 format=3 uid="uid://dv5lmbx51opjc"]
+
+[ext_resource type="Texture2D" uid="uid://1bp7qgje8k45" path="res://addons/inventory/assets/slot.png" id="2_2lfyc"]
+[ext_resource type="Script" path="res://addons/inventory/scripts/slot.gd" id="2_wee4j"]
+[ext_resource type="Texture2D" uid="uid://cshx7osnqfqgw" path="res://addons/inventory/assets/slot_pressed.png" id="3_sgvvh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uiekt"]
+content_margin_left = 3.0
+content_margin_right = 3.0
+bg_color = Color(0.901961, 0.698039, 0.372549, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s7rw4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ysao2"]
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing_size = 0.2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa8sb"]
+bg_color = Color(0.519011, 0.848875, 0.27212, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="slot" type="Control"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("2_wee4j")
+normal_texture = ExtResource("2_2lfyc")
+selected_texture = ExtResource("3_sgvvh")
+
+[node name="slot_texture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_2lfyc")
+
+[node name="item_texture" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="amount" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = -15.0
+offset_right = -2.0
+offset_bottom = 3.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="details" type="Label" parent="."]
+visible = false
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 15.0
+offset_top = -9.0
+offset_right = 48.0
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_uiekt")
+vertical_alignment = 1
+
+[node name="interact_detector" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s7rw4")
+flat = true
+
+[node name="holding_timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="durability" type="ProgressBar" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 3.0
+offset_top = 25.0
+offset_right = 29.0
+offset_bottom = 29.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ysao2")
+theme_override_styles/fill = SubResource("StyleBoxFlat_pa8sb")
+step = 1.0
+show_percentage = false
+
+[connection signal="button_down" from="interact_detector" to="." method="_on_interact_detector_button_down"]
+[connection signal="button_up" from="interact_detector" to="." method="_on_interact_detector_button_up"]
+[connection signal="gui_input" from="interact_detector" to="." method="_on_interact_detector_gui_input"]
+[connection signal="mouse_entered" from="interact_detector" to="." method="_on_interact_detector_mouse_entered"]
+[connection signal="mouse_exited" from="interact_detector" to="." method="_on_interact_detector_mouse_exited"]
+[connection signal="timeout" from="holding_timer" to="." method="_on_holding_timer_timeout"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c57vd52wj4ujj"]
+
+[ext_resource type="Script" path="res://addons/inventory/scripts/default_item.gd" id="1_6lmpr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4d4ng"]
+size = Vector2(32, 29)
+
+[node name="item" type="Node2D"]
+script = ExtResource("1_6lmpr")
+
+[node name="texture" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+
+[node name="item_area" type="Area2D" parent="texture"]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="texture/item_area"]
+shape = SubResource("RectangleShape2D_4d4ng")
+
+[connection signal="area_entered" from="texture/item_area" to="." method="_on_item_area_area_entered"]

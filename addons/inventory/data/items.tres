@@ -1,0 +1,100 @@
+[gd_resource type="Resource" script_class="Items" load_steps=20 format=3 uid="uid://cvm2rj00rv0ak"]
+
+[ext_resource type="Script" path="res://addons/inventory/scripts/item.gd" id="1_feoh7"]
+[ext_resource type="Texture2D" uid="uid://bbigg5u2qb8v4" path="res://addons/inventory/assets/tools.png" id="2_m011f"]
+[ext_resource type="Script" path="res://addons/inventory/data/items.gd" id="2_ygo4o"]
+[ext_resource type="Texture2D" uid="uid://36rmd30e4rm1" path="res://addons/inventory/assets/items.png" id="3_ujqm5"]
+
+[sub_resource type="Resource" id="Resource_kujv5"]
+script = ExtResource("1_feoh7")
+name = "Empty Item"
+description = "Used as a  placeholder for non-existent items."
+stack_limit = 0
+max_durability = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knps7"]
+atlas = ExtResource("2_m011f")
+region = Rect2(70, 7, 25, 25)
+
+[sub_resource type="Resource" id="Resource_gomh4"]
+script = ExtResource("1_feoh7")
+name = "Wooden Sword"
+texture = SubResource("AtlasTexture_knps7")
+description = "Used to kill animals and players."
+stack_limit = 0
+max_durability = 10
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n8cl"]
+atlas = ExtResource("2_m011f")
+region = Rect2(-3, 2, 30, 30)
+
+[sub_resource type="Resource" id="Resource_82sqm"]
+script = ExtResource("1_feoh7")
+name = "Stone Axe"
+texture = SubResource("AtlasTexture_1n8cl")
+description = "Used to cut down trees."
+stack_limit = 0
+max_durability = 20
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4ffc"]
+atlas = ExtResource("2_m011f")
+region = Rect2(22, 3, 29, 29)
+
+[sub_resource type="Resource" id="Resource_khvv5"]
+script = ExtResource("1_feoh7")
+name = "Stone Pickaxe"
+texture = SubResource("AtlasTexture_a4ffc")
+description = "Used to mine stone and ores."
+stack_limit = 0
+max_durability = 20
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f86sl"]
+atlas = ExtResource("2_m011f")
+region = Rect2(46, 4, 25, 25)
+
+[sub_resource type="Resource" id="Resource_65pcl"]
+script = ExtResource("1_feoh7")
+name = "Stone Hoe"
+texture = SubResource("AtlasTexture_f86sl")
+description = "Used to prepare dirt for harvest."
+stack_limit = 0
+max_durability = 20
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44it6"]
+atlas = ExtResource("3_ujqm5")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_m2goq"]
+script = ExtResource("1_feoh7")
+name = "Wood"
+texture = SubResource("AtlasTexture_44it6")
+description = "Used to make weapons, tools, and build houses."
+stack_limit = 4
+max_durability = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4htyv"]
+atlas = ExtResource("3_ujqm5")
+region = Rect2(48, -1, 16, 16)
+
+[sub_resource type="Resource" id="Resource_dtbp8"]
+script = ExtResource("1_feoh7")
+name = "Stone"
+texture = SubResource("AtlasTexture_4htyv")
+description = "Used to make weapons, tools, and build houses."
+stack_limit = 4
+max_durability = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvdfy"]
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Resource" id="Resource_5mvw6"]
+script = ExtResource("1_feoh7")
+name = "Strawberry"
+texture = SubResource("AtlasTexture_wvdfy")
+description = "A type of food that can be eaten"
+stack_limit = 4
+max_durability = 1
+
+[resource]
+script = ExtResource("2_ygo4o")
+items = Array[ExtResource("1_feoh7")]([SubResource("Resource_kujv5"), SubResource("Resource_gomh4"), SubResource("Resource_82sqm"), SubResource("Resource_khvv5"), SubResource("Resource_65pcl"), SubResource("Resource_m2goq"), SubResource("Resource_dtbp8"), SubResource("Resource_5mvw6")])
